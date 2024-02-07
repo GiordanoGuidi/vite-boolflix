@@ -3,7 +3,7 @@ import SearchForm from './SearchForm.vue'
 export default {
     name: 'AppHeader',
     components: { SearchForm },
-    emits: ['serched-movie'],
+    emits: ['searched-movie'],
 }
 
 </script>
@@ -11,7 +11,7 @@ export default {
 <template>
     <header class="d-flex align-items-center justify-content-between">
         <h1 class="text-danger">BOOLFIX</h1>
-        <SearchForm @input-text="$emit('serced-movie', $event)" />
+        <SearchForm @input-text="$emit('searched-movie', $event)" />
     </header>
 </template>
 
