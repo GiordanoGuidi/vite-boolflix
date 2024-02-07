@@ -1,7 +1,8 @@
 <script>
-
+import SearchForm from './SearchForm.vue'
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    components: { SearchForm }
 }
 
 </script>
@@ -9,11 +10,7 @@ export default {
 <template>
     <header class="d-flex align-items-center justify-content-between">
         <h1 class="text-danger">BOOLFIX</h1>
-        <form class="d-flex gap-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
+        <SearchForm />
     </header>
 </template>
 
