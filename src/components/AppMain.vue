@@ -13,6 +13,7 @@ export default {
 <template>
     <main>
         <MovieList :filmList="filmList" />
+
     </main>
 </template>
 
