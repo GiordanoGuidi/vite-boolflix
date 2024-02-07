@@ -12,6 +12,7 @@ export default {
 </script>
 
 <template>
+    <!--FORM-->
     <form @submit.prevent="$emit('input-text', searchText)" class="d-flex gap-3">
         <input type="text" class="form-control" id="#" v-model.trim="searchText">
         <button type="submit" class="btn btn-primary">Submit</button>

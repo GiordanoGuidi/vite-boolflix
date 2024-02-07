@@ -9,8 +9,10 @@ export default {
 </script>
 
 <template>
+    <!--HEADER-->
     <header class="d-flex align-items-center justify-content-between">
         <h1 class="text-danger">BOOLFIX</h1>
+        <!--FORM-->
         <SearchForm @input-text="$emit('searched-movie', $event)" />
     </header>
 </template>

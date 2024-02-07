@@ -12,6 +12,7 @@ export default {
 
   components: { AppHeader, SearchForm },
   methods: {
+    // METODO CHE FILTRA I FILM
     fetchFilms($event) {
       const url = `${endpoint}?query=${$event}&api_key=${apiKey}`
       axios.get(url).then(res => {
@@ -24,6 +25,7 @@ export default {
 </script>
 
 <template>
+  <!--HEADER-->
   <AppHeader @searched-movie="fetchFilms" />
 </template>
 
