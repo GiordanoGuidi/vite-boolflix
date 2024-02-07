@@ -1,22 +1,18 @@
 <script>
+import MovieList from './MovieList.vue';
+import MovieCard from './MovieCard.vue';
 
 export default {
     name: 'AppMain',
-    props: { filmList: Array }
+    components: { MovieList, MovieCard },
+    props: { filmList: Array },
 }
 
 </script>
 
 <template>
     <main>
-        <ul>
-            <li v-for="film in filmList">
-                <p>{{ film.title }}</p>
-                <p>{{ film.original_title }}</p>
-                <div>{{ film.original_language }}</div>
-                <p>{{ film.vote_average }}</p>
-            </li>
-        </ul>
+        <MovieList :filmList="filmList" />
     </main>
 </template>
 
