@@ -1,14 +1,19 @@
 <script>
 
 export default {
-    name: 'SearchForm'
+    name: 'SearchForm',
+
+    data: () => ({
+        searchText: ''
+    }),
+    emits: ['input-text']
 }
 
 </script>
 
 <template>
-    <form class="d-flex gap-3">
-        <input type="text" class="form-control" id="#">
+    <form @submit.prevent="$emit('input-text', searchText)" class="d-flex gap-3">
+        <input type="text" class="form-control" id="#" v-model.trim="searchText">
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </template>
