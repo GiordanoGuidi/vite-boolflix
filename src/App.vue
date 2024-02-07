@@ -4,13 +4,14 @@ let endpoint = 'https://api.themoviedb.org/3/search/movie'
 const apiKey = '7249f678989f4c79f893149db00b1c9f'
 import AppHeader from './components/AppHeader.vue';
 import SearchForm from './components/SearchForm.vue';
+import AppMain from './components/AppMain.vue'
 export default {
   name: 'App',
   data: () => ({
     filteredFilms: []
   }),
 
-  components: { AppHeader, SearchForm },
+  components: { AppHeader, SearchForm, AppMain },
   methods: {
     // METODO CHE FILTRA I FILM
     fetchFilms($event) {
@@ -27,6 +28,8 @@ export default {
 <template>
   <!--HEADER-->
   <AppHeader @searched-movie="fetchFilms" />
+  <!--MAIN-->
+  <AppMain :filmList="filteredFilms" />
 </template>
 
 <style>
