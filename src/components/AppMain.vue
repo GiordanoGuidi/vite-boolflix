@@ -15,9 +15,9 @@ export default {
 <template>
     <main>
         <h1>Film</h1>
-        <ProductionCard v-for="film in store.films" :production="film" />
-        <h1>serie</h1>
-        <ProductionCard v-for="serie in store.series" :production="serie" />
+        <ProductionCard v-for="film in store.films" :key="film.id" :production="film" />
+        <h1>Series</h1>
+        <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
 
     </main>
 </template>
