@@ -1,7 +1,9 @@
 <script>
+import { store } from '../assets/data/store'
 export default {
     name: 'MovieCard',
-    props: { filmList: Array },
+    data: () => ({ store }),
+    props: { seriesList: Array, film: Object },
     methods: {
         getLanguage(language) {
             if (language === 'en' || language === 'it') {
@@ -9,16 +11,14 @@ export default {
             } else {
                 return language
             }
-
         }
-    }
-
+    },
 }
 
 </script>
 
 <template>
-    <li v-for="(film, i) in filmList" :key="i">
+    <li>
         <p>{{ film.title }}</p>
         <p>{{ film.original_title }}</p>
         <div :class="film.original_language">{{ getLanguage(film.original_language) }}</div>
