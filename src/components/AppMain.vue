@@ -1,22 +1,24 @@
 <script>
+import ProductionCard from './ProductionCard.vue';
+import { store } from '../assets/data/store'
+
 
 export default {
     name: 'AppMain',
-    props: { filmList: Array }
+    data: () => ({ store }),
+    components: { ProductionCard, ProductionCard, ProductionCard },
+    props: { filmList: Array, seriesList: Array },
 }
 
 </script>
 
 <template>
     <main>
-        <ul>
-            <li v-for="film in filmList">
-                <p>{{ film.title }}</p>
-                <p>{{ film.original_title }}</p>
-                <div>{{ film.original_language }}</div>
-                <p>{{ film.vote_average }}</p>
-            </li>
-        </ul>
+        <h1>Film</h1>
+        <ProductionCard v-for="film in store.films" :production="film" />
+        <h1>serie</h1>
+        <ProductionCard v-for="serie in store.series" :production="serie" />
+
     </main>
 </template>
 

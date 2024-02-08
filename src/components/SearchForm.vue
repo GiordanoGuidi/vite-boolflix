@@ -6,6 +6,7 @@ export default {
     data: () => ({
         searchText: ''
     }),
+    props: { placeholder: String, buttonLabel: String },
     emits: ['input-text']
 }
 
@@ -14,8 +15,8 @@ export default {
 <template>
     <!--FORM-->
     <form @submit.prevent="$emit('input-text', searchText)" class="d-flex gap-3">
-        <input type="text" class="form-control" id="#" v-model.trim="searchText">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="text" class="form-control" id="#" v-model.trim="searchText" :placeholder="placeholder">
+        <button type="submit" class="btn btn-primary">{{ buttonLabel }}</button>
     </form>
 </template>
 
