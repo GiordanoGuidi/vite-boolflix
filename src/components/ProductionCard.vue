@@ -1,9 +1,9 @@
 <script>
 import { store } from '../assets/data/store'
 export default {
-    name: 'MovieCard',
+    name: 'ProductionCard',
     data: () => ({ store }),
-    props: { seriesList: Array, film: Object },
+    props: { seriesList: Array, production: Object },
     methods: {
         getLanguage(language) {
             if (language === 'en' || language === 'it') {
@@ -18,12 +18,14 @@ export default {
 </script>
 
 <template>
-    <li>
-        <p>{{ film.title }}</p>
-        <p>{{ film.original_title }}</p>
-        <div :class="film.original_language">{{ getLanguage(film.original_language) }}</div>
-        <p>{{ film.vote_average }}</p>
-    </li>
+    <ul class="movie-list">
+        <li>
+            <p>{{ production.title || production.name }}</p>
+            <p>{{ production.original_title || production.original_name }}</p>
+            <div :class="production.original_language">{{ getLanguage(production.original_language) }}</div>
+            <p>{{ production.vote_average }}</p>
+        </li>
+    </ul>
 </template>
 
 <style>

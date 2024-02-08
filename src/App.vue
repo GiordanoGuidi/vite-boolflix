@@ -1,14 +1,11 @@
 <script>
 import axios from 'axios';
-const endpoint = 'https://api.themoviedb.org/3/search/movie';
-const endpointTv = 'https://api.themoviedb.org/3/search/tv'
-const apiKey = '7249f678989f4c79f893149db00b1c9f'
+import { api } from './assets/data/index'
 import AppHeader from './components/AppHeader.vue'
 import SearchForm from './components/SearchForm.vue'
 import AppMain from './components/AppMain.vue'
 import { store } from './assets/data/store'
-import MovieList from './components/MovieList.vue'
-import MovieCard from './components/MovieCard.vue';
+import ProductionCard from './components/productionCard.vue';
 
 export default {
   name: 'App',
@@ -17,38 +14,50 @@ export default {
     filteredTvSeries: []
   }),
 
-  components: { AppHeader, SearchForm, AppMain, MovieList, MovieCard },
+  components: { AppHeader, SearchForm, AppMain, ProductionCard },
   methods: {
-    // METODO CHE FILTRA I FILM
+    // FUNZIONE CHE FILTRA I FILM
     fetchFilms($event) {
-      const url = `${endpoint}?query=${$event}&api_key=${apiKey}`
-      axios.get(url).then(res => {
-        this.filteredFilms = res.data.results;
-        this.fetchTvSeries($event);
-        store.films = res.data.results
-        console.log('store-film', store.films)
-
-      })
+      const { baseUri, apiKey, language } = api
+      const url = `${baseUri}/search/movie?query=${$event}&api_key=${apiKey}&language=${language}`
+      axios.get(url)
+        .then(res => {
+          this.filteredFilms = res.data.results;
+          store.films = res.data.results
+          console.log('store-film', store.films)
+        })
+        .catch(err => {
+          console.error(err)
+        })
     },
 
+    // FUNZIONE CHE FILTRA LE SERIE TV
     fetchTvSeries($event) {
-      const url = `${endpointTv}?api_key=${apiKey}&query=${$event}`;
-      axios.get(url).then(res => {
-        this.filteredTvSeries = res.data.results
-        console.log(this.filteredTvSeries)
-        store.series = res.data.results
-        console.log('store-series', store.series)
-
-      })
+      const { baseUri, apiKey, language } = api
+      const url = `${baseUri}/search/tv?api_key=${apiKey}&language=${language}&query=${$event}`;
+      axios.get(url)
+        .then(res => {
+          this.filteredTvSeries = res.data.results
+          console.log(this.filteredTvSeries)
+          store.series = res.data.results
+          console.log('store-series', store.series)
+        })
+        .catch(err => {
+          console.error(err)
+        })
     },
-
+    // FUNZIONE CHE RICHIAMA FILTRO DEI FILM E DELLE SERIE
+    searchProduction($event) {
+      this.fetchFilms($event);
+      this.fetchTvSeries($event)
+    }
   }
 }
 </script>
 
 <template>
   <!--HEADER-->
-  <AppHeader @searched-movie="fetchFilms" />
+  <AppHeader @searched-movie="searchProduction($event)" />
   <!--MAIN-->
   <AppMain :filmList="filteredFilms" />
 </template>
