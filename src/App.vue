@@ -56,17 +56,14 @@ export default {
 </script>
 
 <template>
-  <!--HEADER-->
-  <AppHeader @searched-movie="searchProduction($event)" />
-  <!--MAIN-->
-  <AppMain :filmList="filteredFilms" />
+  <body>
+    <!--HEADER-->
+    <AppHeader @searched-movie="searchProduction($event)" />
+    <!--MAIN-->
+    <AppMain :filmList="filteredFilms" />
+  </body>
 </template>
 
-<style>
-/*CSS RESET*/
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+<style lang="scss" scoped>
+@use './assets/scss/style.scss'
 </style>

@@ -9,7 +9,6 @@ export default {
 </script>
 
 <template>
-    <!--HEADER-->
     <header class="d-flex align-items-center justify-content-between">
         <h1 class="text-danger">BOOLFIX</h1>
         <!--FORM-->
@@ -17,10 +16,6 @@ export default {
     </header>
 </template>
 
-<style>
-header {
-    height: 150px;
-    background-color: black;
-    width: 100%;
-}
+<style lang="scss" scoped>
+@use '../assets/scss/style.scss'
 </style>

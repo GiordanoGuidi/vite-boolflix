@@ -53,22 +53,31 @@ export default {
 
 <template>
     <!--production-card-->
-    <ul class="production-card">
-        <li>
-            <p>{{ production.title || production.name }}</p>
+    <!-- <ul class="production-card  list-unstyled">
+        <li> -->
+    <!-- <p>{{ production.title || production.name }}</p>
             <p>{{ production.original_title || production.original_name }}</p>
             <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
             <span v-else>{{ lang }}</span>
             <p>{{ this.voteRounded }}</p>
-            <img :src="getUrlImage(production)" :alt="production.title">
+            <p><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> -->
+    <!-- <img :src="getUrlImage(production)" :alt="production.title">
         </li>
-    </ul>
+    </ul> -->
+
+
+    <div class="production-card  list-unstyled" :style="{ backgroundImage: `url(${getUrlImage(production)})` }">
+        <p>{{ production.title || production.name }}</p>
+        <p>{{ production.original_title || production.original_name }}</p>
+        <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
+        <span v-else>{{ lang }}</span>
+        <p>{{ this.voteRounded }}</p>
+        <p><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+    </div>
 </template>
 
-<style scoped>
-img.flag {
-    width: 50px;
-    height: 30px;
-    margin-bottom: 10px;
-}
+<style lang="scss" scoped>
+@use '../assets/scss/style.scss'
 </style>
