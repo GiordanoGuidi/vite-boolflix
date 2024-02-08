@@ -5,7 +5,7 @@ import AppHeader from './components/AppHeader.vue'
 import SearchForm from './components/SearchForm.vue'
 import AppMain from './components/AppMain.vue'
 import { store } from './assets/data/store'
-import ProductionCard from './components/productionCard.vue';
+import ProductionCard from './components/ProductionCard.vue';
 
 export default {
   name: 'App',

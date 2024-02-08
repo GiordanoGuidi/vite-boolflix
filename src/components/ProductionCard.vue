@@ -14,20 +14,45 @@ export default {
             } else {
                 return language
             }
-        }
+        },
+        /*FUNZIONE CHE CREA URL SE NELL'API C'E' L'IMMAGINE
+        ALTRIMENTI METTE UN IMMAGINE DEFAULT*/
+        getUrlImage(production) {
+            const apiImage = `${this.baseUri}${this.production.poster_path} `
+            const defaultImage = 'https://www.shutterstock.com/image-vector/collection-blank-cinema-film-strip-260nw-184250981.jpg'
+            if (production.poster_path) {
+                return apiImage
+            } else {
+                return defaultImage
+            }
+        },
+
     },
+
+    computed: {
+        //VOTO DIVISO PER DUE E ARROTONDATO X ECCESSO
+        voteRounded() {
+            const vote = this.production.vote_average;
+            const voteRounded = Math.round(vote / 2)
+            return voteRounded
+
+        }
+    }
+
+
 }
 
 </script>
 
 <template>
-    <ul class="movie-card">
+    <!--production-card-->
+    <ul class="production-card">
         <li>
             <p>{{ production.title || production.name }}</p>
             <p>{{ production.original_title || production.original_name }}</p>
             <div :class="production.original_language">{{ getLanguage(production.original_language) }}</div>
-            <p>{{ production.vote_average }}</p>
-            <img :src="`${baseUri}${production.poster_path} `" :alt="production.title">
+            <p>{{ this.voteRounded }}</p>
+            <img :src="getUrlImage(production)" :alt="production.title">
         </li>
     </ul>
 </template>

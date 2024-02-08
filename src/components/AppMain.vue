@@ -1,12 +1,12 @@
 <script>
-import ProductionCard from './ProductionCard.vue';
+import ProductionCard from './ProductionCard.vue'
 import { store } from '../assets/data/store'
 
 
 export default {
     name: 'AppMain',
     data: () => ({ store }),
-    components: { ProductionCard, ProductionCard, ProductionCard },
+    components: { ProductionCard, ProductionCard, },
     props: { filmList: Array, seriesList: Array },
 }
 
