@@ -45,8 +45,6 @@ export default {
             return url.href
         }
     }
-
-
 }
 </script>
 

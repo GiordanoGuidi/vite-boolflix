@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data: () => ({
     filteredFilms: [],
-    filteredTvSeries: []
+    filteredTvSeries: [],
   }),
 
   components: { AppHeader, SearchForm, AppMain, ProductionCard },
@@ -24,8 +24,6 @@ export default {
         .then(res => {
           this.filteredFilms = res.data.results;
           store.films = res.data.results
-          console.log('store-film', store.films)
-          $event = ''
         })
         .catch(err => {
           console.error(err)
@@ -39,9 +37,7 @@ export default {
       axios.get(url)
         .then(res => {
           this.filteredTvSeries = res.data.results
-          console.log(this.filteredTvSeries)
           store.series = res.data.results
-          console.log('store-series', store.series)
         })
         .catch(err => {
           console.error(err)

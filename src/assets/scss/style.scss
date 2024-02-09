@@ -27,14 +27,9 @@ main {
 
 .row {
     margin-left: -10px;
-
 }
 
 // PRODUCTION-CARD
-.card-container {
-    width: 100%;
-}
-
 .col {
     width: 20%;
     padding: 10px;
@@ -57,6 +52,7 @@ main {
         bottom: 0;
         right: 0;
         left: 0;
+        border-radius: 5px;
     }
 }
 
