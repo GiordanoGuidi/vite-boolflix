@@ -5,7 +5,7 @@ const api = {
 }
 
 const imgApi = {
-    baseUri: 'https://image.tmdb.org/t/p/w342 ',
-    defaultImage: 'https://www.shutterstock.com/image-vector/collection-blank-cinema-film-strip-260nw-184250981.jpg'
+    baseUri: 'https://image.tmdb.org/t/p/w342',
+    default: 'https://www.shutterstock.com/image-vector/collection-blank-cinema-film-strip-260nw-184250981.jpg'
 }
 export { api, imgApi }

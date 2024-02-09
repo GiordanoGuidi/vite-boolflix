@@ -6,25 +6,19 @@ export default {
     name: 'ProductionCard',
     data: () => ({
         store,
-        baseUri: 'https://image.tmdb.org/t/p/w342',
-
     }),
     props: { seriesList: Array, production: Object },
     methods: {
         /*FUNZIONE CHE CREA URL SE NELL'API C'E' L'IMMAGINE
         ALTRIMENTI METTE UN IMMAGINE DEFAULT*/
         getUrlImage(production) {
-            const apiImage = `${this.baseUri}${this.production.poster_path} `
-            const defaultImage = 'https://www.shutterstock.com/image-vector/collection-blank-cinema-film-strip-260nw-184250981.jpg'
+            const apiImage = `${imgApi.baseUri}${production.poster_path} `
             if (production.poster_path) {
                 return apiImage
             } else {
-                return defaultImage
+                return imgApi.default
             }
         },
-
-
-
     },
 
     computed: {
