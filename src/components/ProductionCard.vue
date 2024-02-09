@@ -31,7 +31,6 @@ export default {
         //LINGUA ORIGINALE 
         lang() {
             return this.production.original_language
-
         },
 
         //CONTROLLIAMO SE FLAG INCLUDE LE LINGUE DELLE BANDIERE
@@ -52,29 +51,28 @@ export default {
 </script>
 
 <template>
-    <!--production-card-->
-    <!-- <ul class="production-card  list-unstyled">
-        <li> -->
-    <!-- <p>{{ production.title || production.name }}</p>
+    <ul class="production-card  list-unstyled">
+        <li>
+            <p>{{ production.title || production.name }}</p>
+        </li>
+        <li>
             <p>{{ production.original_title || production.original_name }}</p>
+        </li>
+        <li>
             <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
             <span v-else>{{ lang }}</span>
-            <p>{{ this.voteRounded }}</p>
-            <p><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p> -->
-    <!-- <img :src="getUrlImage(production)" :alt="production.title">
         </li>
-    </ul> -->
 
-
-    <div class="production-card  list-unstyled" :style="{ backgroundImage: `url(${getUrlImage(production)})` }">
-        <p>{{ production.title || production.name }}</p>
-        <p>{{ production.original_title || production.original_name }}</p>
-        <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
-        <span v-else>{{ lang }}</span>
-        <p>{{ this.voteRounded }}</p>
-        <p><i v-for="n in 5" class="fa-solid fa-star" :class="n <= this.voteRounded ? 'text-warning' : 'fas'"></i></p>
-    </div>
+        <li>
+            <p>{{ this.voteRounded }}</p>
+        </li>
+        <!-- <li class="h-100">
+            <img :src="getUrlImage(production)" :alt="production.title" class="img-fluid">
+        </li> -->
+        <li>
+            <p><i v-for="n in 5" class="fa-solid fa-star" :class="n <= this.voteRounded ? 'text-warning' : 'fas'"></i></p>
+        </li>
+    </ul>
 </template>
 
 <style lang="scss" scoped>

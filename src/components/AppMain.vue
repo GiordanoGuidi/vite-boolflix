@@ -14,20 +14,25 @@ export default {
 
 <template>
     <main class="text-white">
-
-        <h1>Film</h1>
-        <div class="row card-container p-4 row-cols-2 row-cols-md-3 row-cols-lg-5 ">
-            <div class="card-container d-flex flex-wrap">
-                <div class="col-" v-for="film in store.films" :key="film.id" :production="film">
+        <!--MOVIE-->
+        <section id="movie">
+            <h2>Film</h2>
+            <div class="row card-container row-cols-2 row-cols-md-3 row-cols-lg-5">
+                <div class="col" v-for="film in store.films" :key="film.id">
                     <ProductionCard :production="film" />
 
                 </div>
             </div>
-        </div>
-
-        <!-- <h1>Series</h1>
-        <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" /> -->
-
+            <!--SERIES-->
+        </section>
+        <section id="series">
+            <h2>Series</h2>
+            <div class="row card-container row-cols-2 row-cols-md-3 row-cols-lg-5 ">
+                <div class="col" v-for="serie in store.series" :key="serie.id">
+                    <ProductionCard :production="serie" />
+                </div>
+            </div>
+        </section>
     </main>
 </template>
 
