@@ -5,7 +5,10 @@ import { store } from '../assets/data/store'
 
 export default {
     name: 'AppMain',
-    data: () => ({ store }),
+    data: () => ({
+        store,
+
+    }),
     components: { ProductionCard, ProductionCard, },
     props: { filmList: Array, seriesList: Array },
 }
@@ -15,7 +18,7 @@ export default {
 <template>
     <main class="text-white">
         <!--MOVIE-->
-        <section id="movie">
+        <section v-if="this.store.films" id="movie">
             <h2>Film</h2>
             <div class="row card-container row-cols-2 row-cols-md-3 row-cols-lg-5">
                 <div class="col" v-for="film in store.films" :key="film.id">

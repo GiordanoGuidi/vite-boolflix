@@ -16,7 +16,7 @@ export default {
     <!--FORM-->
     <form @submit.prevent="$emit('input-text', searchText)" class="d-flex gap-3">
         <input type="text" class="form-control" id="#" v-model.trim="searchText" :placeholder="placeholder">
-        <button type="submit" class="btn btn-primary">{{ buttonLabel }}</button>
+        <button type="submit" class="btn btn-danger">{{ buttonLabel }}</button>
     </form>
 </template>
 

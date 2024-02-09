@@ -1,9 +1,12 @@
 <script>
-import { store } from '../assets/data/store'
+import { store } from '../assets/data/store';
+import { api, imgApi } from '../assets/data/index';
+
 export default {
     name: 'ProductionCard',
     data: () => ({
-        store, baseUri: 'https://image.tmdb.org/t/p/w342'
+        store,
+        baseUri: 'https://image.tmdb.org/t/p/w342',
 
     }),
     props: { seriesList: Array, production: Object },
@@ -73,8 +76,8 @@ export default {
         <li>
             <p>{{ this.voteRounded }}</p>
         </li>
-        <li class="h-100 pippo">
-            <img :src="getUrlImage(production)" :alt="production.title" class="img-fluid">
+        <li class="pippo">
+            <img :src="getUrlImage(production)" :alt="production.title" class="production-img img-fluid">
         </li>
         <li>
             <p><i v-for="n in 5" class="fa-solid fa-star" :class="n <= this.voteRounded ? 'text-warning' : 'fas'"></i></p>
