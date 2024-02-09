@@ -25,6 +25,7 @@ export default {
           this.filteredFilms = res.data.results;
           store.films = res.data.results
           console.log('store-film', store.films)
+          $event = ''
         })
         .catch(err => {
           console.error(err)

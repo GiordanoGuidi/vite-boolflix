@@ -18,7 +18,7 @@ export default {
 <template>
     <main class="text-white">
         <!--MOVIE-->
-        <section v-if="this.store.films" id="movie">
+        <section id="movie" v-if="store.films.length">
             <h2>Film</h2>
             <div class="row card-container row-cols-2 row-cols-md-3 row-cols-lg-5">
                 <div class="col" v-for="film in store.films" :key="film.id">
@@ -28,7 +28,7 @@ export default {
             </div>
             <!--SERIES-->
         </section>
-        <section id="series">
+        <section id="series" v-if="store.films.length">
             <h2>Series</h2>
             <div class="row card-container row-cols-2 row-cols-md-3 row-cols-lg-5 ">
                 <div class="col" v-for="serie in store.series" :key="serie.id">
