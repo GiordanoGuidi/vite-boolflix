@@ -40,12 +40,21 @@ main {
     height: 400px;
     text-align: center;
 
+
+
     img {
         object-fit: cover;
         height: 100%;
         width: 100%;
     }
+}
 
+
+
+.production-card:hover {
+    .pippo {
+        display: none;
+    }
 }
 
 img.flag {

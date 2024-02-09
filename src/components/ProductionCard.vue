@@ -19,6 +19,9 @@ export default {
                 return defaultImage
             }
         },
+
+
+
     },
 
     computed: {
@@ -52,11 +55,15 @@ export default {
 
 <template>
     <ul class="production-card  list-unstyled">
-        <li>
-            <p>{{ production.title || production.name }}</p>
+        <li v-show="production.title">
+            <p>{{ production.title }}</p>
+            <p v-if="production.title !== production.original_title">
+                {{ production.original_title }}</p>
         </li>
-        <li>
-            <p>{{ production.original_title || production.original_name }}</p>
+        <li v-show="production.name">
+            <p>{{ production.name }}</p>
+            <p v-if="production.name !== production.original_name">
+                {{ production.original_name }}</p>
         </li>
         <li>
             <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
@@ -66,9 +73,9 @@ export default {
         <li>
             <p>{{ this.voteRounded }}</p>
         </li>
-        <!-- <li class="h-100">
+        <li class="h-100 pippo">
             <img :src="getUrlImage(production)" :alt="production.title" class="img-fluid">
-        </li> -->
+        </li>
         <li>
             <p><i v-for="n in 5" class="fa-solid fa-star" :class="n <= this.voteRounded ? 'text-warning' : 'fas'"></i></p>
         </li>
