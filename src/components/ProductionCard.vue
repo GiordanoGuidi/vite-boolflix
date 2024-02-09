@@ -73,8 +73,7 @@ export default {
         <img class="flag" v-if="hasFlag" :src="flagSrc" :alt="lang">
         <span v-else>{{ lang }}</span>
         <p>{{ this.voteRounded }}</p>
-        <p><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+        <p><i v-for="n in 5" class="fa-solid fa-star" :class="n <= this.voteRounded ? 'text-warning' : 'fas'"></i></p>
     </div>
 </template>
 

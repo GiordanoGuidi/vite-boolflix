@@ -7,4 +7,4 @@ const api = {
 const imgApi = {
     baseUri: 'https://image.tmdb.org/t/p/w342 '
 }
-export { api }
+export { api, imgApi }
